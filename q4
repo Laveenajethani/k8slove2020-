@@ -1,4 +1,4 @@
-[laveenaj@ip-172-31-33-139 ~]$ cat q4rs.yaml
+[laveenaj@ip-XXXX~]$ cat q4rs.yaml
 apiVersion: apps/v1
 kind: ReplicaSet
 metadata:
@@ -22,3 +22,24 @@ spec:
       image: laveenajethani/may2020q11
       ports:
        - containerPort: 80
+       
+>kubectl create -f q4rs.yaml
+
+[laveenaj@ip-XXXX ~]$ cat serviceq4.yaml
+apiVersion: v1
+kind: Service
+metadata:
+ name: q4svclaveena
+
+spec:
+ ports:
+  - name: myq4svc
+    port: 1122
+    targetPort: 80
+    protocol: TCP
+ selector:
+  x: mysvcq4
+ type: LoadBalancer
+ 
+> kubectl create -f serviceq4.yaml  
+ 
