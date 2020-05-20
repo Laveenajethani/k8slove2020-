@@ -1,6 +1,6 @@
-kubectl run adhoc:laveenaq2 --image=nginx --port 80 --dry-run=client -o yaml > q2.yaml
+>>kubectl run adhoc:laveenaq2 --image=nginx --port 80 --dry-run=client -o yaml > q2.yaml
 
-yaml file:q2.yaml
+>>cat file:q2.yaml
 
 apiVersion: v1
 kind: Pod
@@ -20,4 +20,23 @@ spec:
   restartPolicy: Always
 status: {}
 
- get pods -o wide --show-labels
+>>get pods -o wide --show-labels
+ 
+>>cat service.yaml-->
+ 
+apiVersion: v1
+kind: Service
+metadata:
+ name: q2svclaveena
+
+spec:
+ ports:
+  - name: myportsvc
+    port: 1133
+    targetPort: 80
+    protocol: TCP
+ selector:
+  x: mynodeport
+ type: NodePort
+
+>>kubectl get svc
