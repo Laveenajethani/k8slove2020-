@@ -1,0 +1,22 @@
+Dockerfile:adhochttpd.dockerfile 
+
+FROM centos
+MAINTAINER laveena.j.21@gmail.com
+RUN yum install httpd -y
+RUN mkdir /mycode
+ENV x=app
+COPY beginner-html-site-styled  /mycode/beginner-html-site-styled
+COPY project-html-website  /mycode/project-html-website
+COPY file.sh /mycode/file.sh
+EXPOSE 80
+RUN chmod +x /mycode/file.sh
+ENTRYPOINT ["/bin/bash","mycode/file.sh"]
+
+Building docker image:
+ docker build -t may2020q1:v1 -f adhochttpd.dockerfile .
+
+Pushing Image to docker hub:
+ docker tag  may2020q1:v1 laveenajethani/may2020q1:v1
+ docker login
+ docker push laveenajethani/may2020q1:v1
+ 
