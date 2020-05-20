@@ -9,7 +9,7 @@ metadata:
   name: adhocpod2
 spec:
   containers:
-  - image: laveenajethani/may2020q1:v1
+  - image: laveenajethani/may2020q11:v1
     name: adhocpod2
     ports:
     - containerPort: 80
