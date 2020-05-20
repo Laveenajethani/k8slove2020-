@@ -1,0 +1,42 @@
+>cat q3.yml--
+
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: adhoclaveenaq3
+  name: adhocpod2
+spec:
+  containers:
+  - image: laveenajethani/may2020q1:v1
+    name: adhocpod2
+    ports:
+    - containerPort: 80
+    env:
+     - name: app
+       value: project-html-website
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+istatus: {}
+
+>kubectl create -f q3.yaml
+
+>cat q3service.yml
+apiVersion: v1
+kind: Service
+metadata:
+ name: q3vclaveena
+
+spec:
+ ports:
+  - name: myportsvc
+    port: 1132
+    targetPort: 80
+    protocol: TCP
+ selector:
+  x: mynodeport1
+ type: NodePort
+ 
+> kubectl create -f q3service.yaml
