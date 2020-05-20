@@ -1,0 +1,21 @@
+kubectl run adhoc:laveenaq2 --image=nginx --port 80 --dry-run=client -o yaml > q2.yaml
+
+yaml file:q2.yaml
+
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: adhoc_laveenaq2
+  name: adhocpod1
+spec:
+  containers:
+  - image: nginx
+    name: adhocpod1
+    ports:
+    - containerPort: 80
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}
