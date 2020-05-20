@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+ name: adhocdeplaveena5
+ labels:
+  run: adhoc_laveenaq5
+
+spec:
+ selector:
+  matchLabels:
+   x: adhoc_laveenaq5
+ relicas: 3
+ template:
+  metadata:
+   name: svcpods
+   labels:
+    x: adhoc_laveenaq5
+  spec:
+   containers:
+    - name: svcpodsa
+      image: laveenajethani/may2020q11
+      ports:
+       - containerPort: 80
