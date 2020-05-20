@@ -19,3 +19,5 @@ spec:
   dnsPolicy: ClusterFirst
   restartPolicy: Always
 status: {}
+
+ get pods -o wide --show-labels
