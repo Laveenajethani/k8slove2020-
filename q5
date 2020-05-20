@@ -23,3 +23,5 @@ spec:
       image: laveenajethani/may2020q11
       ports:
        - containerPort: 80
+
+> kubectl create -f  q5dep1.yaml
